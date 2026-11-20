@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.catatan.dompet',
-  appName: 'Catatan Dompet',
+  appName: 'Arbour Wallet',
   webDir: 'dist',
   android: {
     allowMixedContent: false,

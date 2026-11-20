@@ -1,5 +1,5 @@
 import React from 'react';
-import { Moon, Sun, Wallet2 } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { AppTheme } from '../types/finance';
 import { formatMonthYearId, getCurrentMonthKey } from '../utils/format';
 
@@ -15,12 +15,14 @@ export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
     <header className="sticky top-0 z-30 bg-alabaster/90 dark:bg-obsidian/90 backdrop-blur-md border-b border-sandline dark:border-slateborder safe-pt">
       <div className="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white flex items-center justify-center shadow-sm">
-            <Wallet2 className="w-5 h-5" />
-          </div>
+          <img
+            src="./arbour-logo.png"
+            alt="Arbour Wallet"
+            className="w-9 h-9 object-contain shrink-0"
+          />
           <div>
             <h1 className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-              Catatan Dompet
+              Arbour Wallet
             </h1>
             <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
               {monthLabel} • Offline

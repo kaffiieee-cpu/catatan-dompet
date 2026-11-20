@@ -17,8 +17,8 @@ export const WebPreviewBanner: React.FC = () => {
           </p>
         </div>
         <a
-          href="./CatatanDompet.apk"
-          download="CatatanDompet.apk"
+          href="./ArbourWallet.apk"
+          download="ArbourWallet.apk"
           className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-emerald-500 hover:bg-emerald-400 active:scale-[0.98] text-slate-950 font-bold text-xs px-3 py-1.5 shadow-sm transition"
         >
           <Download className="w-3.5 h-3.5" />

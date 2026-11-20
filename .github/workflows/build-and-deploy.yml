@@ -67,14 +67,14 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
 
-      - name: Salin APK ke dist/CatatanDompet.apk
-        run: cp android/app/build/outputs/apk/debug/app-debug.apk dist/CatatanDompet.apk
+      - name: Salin APK ke dist/ArbourWallet.apk
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk dist/ArbourWallet.apk
 
-      - name: Upload artefak CatatanDompet.apk
+      - name: Upload artefak ArbourWallet.apk
         uses: actions/upload-artifact@v4
         with:
-          name: CatatanDompet-APK
-          path: dist/CatatanDompet.apk
+          name: ArbourWallet.apk
+          path: dist/ArbourWallet.apk
           retention-days: 30
 
       - name: Konfigurasi GitHub Pages

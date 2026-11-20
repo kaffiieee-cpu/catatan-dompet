@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Catatan Dompet</string>
-    <string name="title_activity_main">Catatan Dompet</string>
+    <string name="app_name">Arbour Wallet</string>
+    <string name="title_activity_main">Arbour Wallet</string>
     <string name="package_name">com.catatan.dompet</string>
     <string name="custom_url_scheme">com.catatan.dompet</string>
 </resources>

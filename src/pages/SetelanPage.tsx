@@ -367,7 +367,7 @@ export const SetelanPage: React.FC<SetelanPageProps> = ({
             <p>
               {resetStep === 1
                 ? 'Pastikan Anda sudah mengekspor file backup .json terlebih dahulu. Tindakan ini akan mengosongkan seluruh catatan.'
-                : 'Klik tombol merah di bawah untuk benar-benar menghapus semua data lokal Catatan Dompet sekarang.'}
+                : 'Klik tombol merah di bawah untuk benar-benar menghapus semua data lokal Arbour Wallet sekarang.'}
             </p>
           </div>
 

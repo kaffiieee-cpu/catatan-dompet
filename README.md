@@ -1,4 +1,4 @@
-# Catatan Dompet
+# Arbour Wallet
 
 Aplikasi pencatat keuangan pribadi **100% offline & gratis** berbasis React, TypeScript, Tailwind CSS, dan Capacitor Android.
 
@@ -19,7 +19,7 @@ Aplikasi pencatat keuangan pribadi **100% offline & gratis** berbasis React, Typ
    ```bash
    git init
    git add .
-   git commit -m "Rilis awal Catatan Dompet"
+   git commit -m "Rilis awal Arbour Wallet"
    git branch -M main
    git remote add origin https://github.com/USERNAME_ANDA/catatan-dompet.git
    git push -u origin main
@@ -33,8 +33,8 @@ Aplikasi pencatat keuangan pribadi **100% offline & gratis** berbasis React, Typ
    - Buka tab **Actions** di GitHub. Workflow **Build APK & Deploy Web Preview** akan otomatis berjalan.
    - Setelah selesai:
      - **Web Preview** langsung dapat diakses melalui URL GitHub Pages Anda (`https://USERNAME_ANDA.github.io/catatan-dompet/`).
-     - Tombol **Download APK** di banner atas Web Preview otomatis mengunduh `CatatanDompet.apk` terbaru.
-     - Anda juga dapat mengunduh `CatatanDompet-APK` dari bagian **Artifacts** di halaman hasil workflow Actions.
+     - Tombol **Download APK** di banner atas Web Preview otomatis mengunduh `ArbourWallet.apk` terbaru.
+     - Anda juga dapat mengunduh `ArbourWallet.apk` dari bagian **Artifacts** di halaman hasil workflow Actions.
 
 ## Menjalankan Secara Lokal
 ```bash

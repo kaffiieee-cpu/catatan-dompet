@@ -9,7 +9,7 @@ export async function exportBackupJson(state: AppState): Promise<{
   filename: string;
   error?: string;
 }> {
-  const filename = `catatan-dompet-backup-${getTodayIso()}.json`;
+  const filename = `arbour-wallet-backup-${getTodayIso()}.json`;
   const payload = JSON.stringify(
     {
       ...state,
@@ -30,10 +30,10 @@ export async function exportBackupJson(state: AppState): Promise<{
       });
 
       await Share.share({
-        title: 'Backup Catatan Dompet',
-        text: `File cadangan data Catatan Dompet (${filename})`,
+        title: 'Backup Arbour Wallet',
+        text: `File cadangan data Arbour Wallet (${filename})`,
         url: writeResult.uri,
-        dialogTitle: 'Simpan atau Bagikan Backup Catatan Dompet',
+        dialogTitle: 'Simpan atau Bagikan Backup Arbour Wallet',
       });
 
       return { success: true, filename };
