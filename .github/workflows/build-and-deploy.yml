@@ -1,0 +1,90 @@
+name: Build APK & Deploy Web Preview
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repositori
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Setup Java 21 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Install dependensi
+        run: npm ci
+
+      - name: Build aplikasi Web
+        run: npm run build
+
+      - name: Siapkan platform Android Capacitor & izin manifest
+        run: |
+          if [ ! -d "android" ]; then
+            npx cap add android
+          fi
+          MANIFEST="android/app/src/main/AndroidManifest.xml"
+          for PERM in \
+            "android.permission.POST_NOTIFICATIONS" \
+            "android.permission.SCHEDULE_EXACT_ALARM" \
+            "android.permission.RECEIVE_BOOT_COMPLETED"; do
+            if ! grep -q "$PERM" "$MANIFEST"; then
+              sed -i "s|<manifest |<manifest |" "$MANIFEST"
+              sed -i "/<application/i \    <uses-permission android:name=\"$PERM\" />" "$MANIFEST"
+            fi
+          done
+          npx cap sync android
+
+      - name: Build Debug APK Android
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Salin APK ke dist/CatatanDompet.apk
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk dist/CatatanDompet.apk
+
+      - name: Upload artefak CatatanDompet.apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: CatatanDompet-APK
+          path: dist/CatatanDompet.apk
+          retention-days: 30
+
+      - name: Konfigurasi GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artefak GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy ke GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
